@@ -9,6 +9,14 @@ function randomNumber(a, b) {
   return Math.floor(Math.random() * (b - a) + a);
 }
 
+function GameBoard({ onMiss, children }) {
+  return (
+    <div className="orchard-background" onClick={onMiss}>
+      {children}
+    </div>
+  )
+}
+
 //this is our new stats component 
 function Stats({ score, lives, style}) {
   return (
@@ -17,6 +25,7 @@ function Stats({ score, lives, style}) {
     </div>
   )
 }
+
 
 function App() {
   const [score, setScore] = useState(0);
@@ -85,7 +94,7 @@ function App() {
   return (
     <> 
     <Stats score={score} lives={lives} style={statsStyle} />
-      <div className="orchard-background" onClick={missTarget}>
+    <GameBoard onMiss={missTarget}>
         { score < 100 ?
         <div
           className="apple-target"
@@ -94,7 +103,7 @@ function App() {
         ></div>
        : <h1 className="win">YOU WIN!</h1>
       }
-      </div>
+      </GameBoard>
     </>
   );
 }
