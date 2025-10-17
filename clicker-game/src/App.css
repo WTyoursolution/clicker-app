@@ -1,0 +1,45 @@
+* {
+  box-sizing: border-box;
+  padding: 10px;
+  /*adds padding to all*/
+
+  /*it is moving everything inside the webpage*/
+}
+
+.win {
+  position: absolute;
+  background-color: black;
+  color: whitesmoke;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+}
+
+
+.orchard-background {
+  position: relative;
+  background-image: url("/orchard.png"); 
+  /*does not know abput public so we do /apple.png */
+  width: 500px;
+  height: 700px;
+  background-size: contain;
+
+}
+
+.apple-target {
+  position: absolute;
+  background-image: url("/apple.png");
+  width: 100px;
+  height: 100px;
+  background-size: contain;
+}
+
+.stats {
+  background-color: brown;
+  font-weight: bold;
+  font-size: 30px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  padding: 10px;
+  margin: 20px;
+  color: black;
+}
