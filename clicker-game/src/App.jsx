@@ -9,6 +9,7 @@ function randomNumber(a, b) {
   return Math.floor(Math.random() * (b - a) + a);
 }
 
+//this is our new stats component 
 function Stats({ score, lives, style}) {
   return (
     <div className="stats" style={style}>
@@ -82,11 +83,8 @@ function App() {
   };
 
   return (
-    <>
-      <div className="stats" style={statsStyle}>
-        Score: {score} Lives: {lives}
-      </div>
-
+    <> 
+    <Stats score={score} lives={lives} style={statsStyle} />
       <div className="orchard-background" onClick={missTarget}>
         { score < 100 ?
         <div
