@@ -17,11 +17,26 @@ function Page() {
     getEmployees()
   }, [])
 
+async function addEmployee(firstName, lastName) {
+  const newEmployee = {
+    "first_name": "Bob",
+   "last_name": "Washington",
+   "employee_of_the_month": 3,
+   "date_of_hire": "2025-10-13"
+  }
+      const { data } = await supabase.from('employees').insert(newEmployee)
+}
+
+function handleAddBob() {
+  addEmployee();
+}
+
   return (
     <div>
+        <ul >
       {employees.map((employee) => (
-        <ul key={employee.id}>
-        <li>
+      
+        <li key={employee.id}>
           Employee: &nbsp;
           {employee.first_name} 
          {" "}
@@ -38,8 +53,12 @@ function Page() {
         {employee.hobbies}
           
           </li>
-          </ul>
+         
       ))}
+       </ul>
+       <div>
+        <button onClick={handleAddBob}>add</button>
+       </div>
     </div>
   )
 }
